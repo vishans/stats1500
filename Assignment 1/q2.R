@@ -23,4 +23,6 @@ myFunction <- function(x) {
   (1 / (1 + exp(-(x-1)))) - 0.5
   }
 
+# I assume the question wants me to print the answer out;
+# in any case, I am computing the root of the function 
 print(secant(myFunction, 0.9, 1.1))

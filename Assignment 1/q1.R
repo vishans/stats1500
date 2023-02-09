@@ -4,7 +4,7 @@ dat[dat == -99.0] = NA
 
 # b
 mdat <- sapply(dat[,1:4], mean, na.rm = T)
-vdat <- sapply(dat[1:4], var, na.rm = T)
+vdat <- sapply(dat[,1:4], var, na.rm = T)
 
 # c 
 dat <- cbind(dat, Bsepal = as.integer(dat$Sepal.Width > 3.1))

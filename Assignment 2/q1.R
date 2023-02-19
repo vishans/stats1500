@@ -62,19 +62,32 @@ sevens <- function(n){
 
 # (i)
 game <- function(){
-repeat{
-  result <- oneRound()
   
-  if (Reduce('&&',result[1:3] == c(7,7,7))){
-    return (1)
+  repeat{
+    result <- oneRound()
+    print(result)
+    if (Reduce('&&',(result[1:3] == c(7,7,7)))){
+      return (1)
+    }
+    
+    else if(sum(result[1:3]) <= 14){
+    
+      next 
+    }
+    return (0)
+    
+    
   }
   
-  else if(sum(result(1:3)) <= 14){
-    next 
+}
+
+# (j)
+oddOfWinningGame <- function(){
+  n <- 100
+  dummyFunction <- function(dummyN){
+    game()
   }
-  return (0)
-  
-  
+  sum (sapply( lapply(1:n, dummyFunction) , '[', 1)) / n
 }
-  
-}
+
+

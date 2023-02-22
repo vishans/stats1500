@@ -23,3 +23,13 @@ for(j in c(-0.8,-0.5,0.0,0.5,0.8)){
   persp(x,y,z, col = 'lightblue', phi = 45, theta = 30, zlab = paste('p = ', j))
   Sys.sleep(1)
 }
+
+# (e)
+x <- seq(-3,3, length.out = 100)
+plot(x,f(x,1,0))
+# Looks like a normal distribution with mean = 0 and variance = 1
+
+
+# (f)
+y <- seq(-3,3, length.out = 100)
+plot(x,f(1,y,0))

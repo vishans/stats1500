@@ -26,19 +26,27 @@ nRounds <- function(n){
 fourteen <- function(n){
   sum(sapply(nRounds(n), '[', 4) <= 14) / n
   
-  # I am extracting the first 4th element (which is the sum) of each list (each simulation)
-  # Then I am comparing the sums with 14
+  # I am extracting the 4th element (which is the sum) of each list (each simulation)
+  # Then I am checking if the sums <= 14
   # I am left out with an array of bools
   # If the element is T, the sum is less or equal to 14; it is F otherwise
   # Then I take the sum of the collection of bools
   # R is smart enough to coerce the bools to ints
   # T becomes 1 and F becomes 0 which does not affect our sum
   # In the end, I am left with the count of 1s (True) 
-  # Finally I take the division of the count and the length of the sample space
+  # Finally I take the division of the count and the length of the sample space, n
 }
 
 # (d)
-#fourteen(1000000)
+fourteen(1000000)
+run5Times <- function(){
+  
+  dummyF <- function(n){
+    N <- 1000000
+    fourteen(N)
+  }
+  mean(sapply(1:5, dummyF))
+}
 
 # (e)
 # Looks like the proportion is about 0.354 (3 s.f)
@@ -55,7 +63,15 @@ sevens <- function(n){
 }
 
 # (g)
-# sevens(1000000)
+sevens(1000000)
+run5Times_ <- function(){
+  
+  dummyF <- function(n){
+    N <- 1000000
+    sevens(N)
+  }
+  mean(sapply(1:5, dummyF))
+}
 
 # (h)
 # Looks like it's about 0.00104 (3 s.f)
@@ -65,7 +81,7 @@ game <- function(){
   
   repeat{
     result <- oneRound()
-    print(result)
+    # print(result)
     if (Reduce('&&',(result[1:3] == c(7,7,7)))){
       return (1)
     }
@@ -83,11 +99,16 @@ game <- function(){
 
 # (j)
 oddOfWinningGame <- function(){
-  n <- 100
+  n <- 5000
   dummyFunction <- function(dummyN){
     game()
   }
   sum (sapply( lapply(1:n, dummyFunction) , '[', 1)) / n
 }
+
+# After running about 5000 simulations several times, it looks like the probability of winning the game
+# is about 0.001
+# The odds of winning is low.
+
 
 

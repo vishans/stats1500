@@ -49,7 +49,7 @@ run5Times <- function(){
 }
 
 # (e)
-# Looks like the proportion is about 0.354 (3 s.f)
+# Looks like the probability is about 0.354 (3 s.f)
 
 # (f)
 sevens <- function(n){

@@ -2,7 +2,7 @@
 f <- function(x, y, p){
   stopifnot('P has to be in the range (-1, 1)' = (p > -1 && p < 1))
   
-  (1/(2 * pi * sqrt(1 - p^2)))* exp((-1/(2*(1 - p^2))) * (x^2 - 2*p*x*y + y^2))
+  (1/(2 * pi * sqrt(1 - (p^2))))* exp((-1/(2*(1 - (p^2)))) * ((x^2) - 2*p*x*y + (y^2)))
 }
 
 # (b)
@@ -20,7 +20,7 @@ for(i in seq(0,100,10)){
 # (d)
 for(j in c(-0.8,-0.5,0.0,0.5,0.8)){
   z <- outer(x,y, f, j)
-  persp(x,y,z, col = 'lightblue', phi = 45, theta = 30, zlab = 'f(x,y)')
+  persp(x,y,z, col = 'lightblue', phi = 30, theta = 30, zlab = 'f(x,y)')
   Sys.sleep(10)
 }
 # When p = -0.8, the correlation between the two variables is negative, meaning that they tend to move in opposite directions. The resulting 3D plot would show a surface that is elongated in one direction and compressed in the other direction, with a valley running along the line where the two variables are equal to zero.

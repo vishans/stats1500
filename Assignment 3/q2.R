@@ -8,9 +8,8 @@ par(mfrow=c(1,1))
 plot(x, f(x), type = 'l')
 
 # (b)
-# bisection
-
-bisection <- function(f, a, b, tol, xseq = c()){  # this is a recursive algorithm
+# bisection (recursive)
+bisection <- function(f, a, b, tol, xseq = c()){  
   stopifnot('a should be strictly less than b'=a < b)
   
   midPoint = (a+b)/2
@@ -99,6 +98,10 @@ graphsOfConvergence <- function(){
     bisecX <- bisectionIterative(f, a, b, tol)
     newtonX <- newton(f, a, b, tol)
     par(mfrow=c(2,1))
-    plot(1:length(bisecX$xseq), abs(bisecX$root - bisecX$xseq), type = 'l', main = 'Bisection Algorithm Covergence', xlab = 'i', ylab = '|x* - xi|')
-    plot(1:length(newtonX$xseq), abs(newtonX$root - newtonX$xseq), type = 'l', main = "Newton's Method Algorithm Convergence",xlab = 'i', ylab = '|x* - xi|')
+    plot(1:length(bisecX$xseq), abs(bisecX$root - bisecX$xseq), type = 'l', main = 'Bisection Algorithm Covergence', xlab = 'i', ylab = '|x* - xi|', lwd=2)
+    plot(1:length(newtonX$xseq), abs(newtonX$root - newtonX$xseq), type = 'l', main = "Newton's Method Algorithm Convergence",xlab = 'i', ylab = '|x* - xi|', lwd = 2)
 }
+# run this fn if you want to see the graphs of convergence
+# for both the bisection algo (iter) and newton's method algo
+# from these 2 pictures, 
+# it looks like Newton's method has a much faster convergence rate
